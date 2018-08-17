@@ -1,0 +1,16 @@
+.input {
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  padding: 10px 15px;
+}
+
+.input textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--background-color);
+  color: var(--item-foreground-color);
+  border: none;
+  padding: 10px;
+  border: 1px solid var(--item-active-background-color);
+}

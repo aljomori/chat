@@ -1,0 +1,17 @@
+.message {
+  color: var(--item-foreground-color);
+  border-bottom: 1px solid var(--background-color);
+}
+
+.body {
+  padding: 10px 15px;
+}
+
+.image, .video {
+  max-width: 100%;
+  max-height: 240px;
+}
+
+.content {
+  padding: 10px 15px;
+}

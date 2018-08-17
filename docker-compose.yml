@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    depends_on:
+      - php
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - '80:80'
+    volumes:
+      - files:/files
+
+  php:
+    depends_on:
+      - db
+      - redis
+    build:
+      context: .
+      dockerfile: php.Dockerfile
+    environment:
+      - DB_HOST=db
+      - REDIS_HOST=redis
+    volumes:
+      - files:/code/api/storage/app/public
+
+  db:
+    image: mysql:5.6
+    environment:
+      - MYSQL_DATABASE=homestead
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=secret
+
+  redis:
+    image: redis:4
+
+volumes:
+  files:
